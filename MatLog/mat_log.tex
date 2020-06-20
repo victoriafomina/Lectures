@@ -426,10 +426,66 @@
 	\end{definition}
 
 	\begin{definition}[Формальная теория с равенством]\ \\[1ex]
-		Формальная теория называется \textbf{формальной теорией с равенством}, если в ней имеется выделенный двухместный предикат \textbf{=} и для любой формулы $A$ этой теории выводимы 
+		Формальная теория называется \textbf{формальной теорией с равенством}, если в ней имеется выделенный двухместный предикат \textbf{=} и выполнимы следующие аксиомы
+		\begin{itemize}
+			\item $ER \qquad \forall x \ (x = x)$ 
+			\item $ES \qquad \forall xy \ (x = y \rightarrow y = x)$
+			\item $ET \qquad \forall xyz \ (x = y \ \& \ y = z \rightarrow x = z)$
+		\end{itemize}
+	
+		\begin{axiom}[Аксиомы согласования с равенством]\
+			\begin{itemize}
+				\item $\forall xy \ (x = y \rightarrow (P(x_1, \ \dots, \ x_{i - 1}, \ x, \ x_{i + 1}, \ \dots , \ x_n) \leftrightarrow P(x_1, \ \dots , x_{i - 1}, \ y, \ x_{i + 1}, \ \dots , \ x_n ))$
+				\item $\forall xy \ (x = y \rightarrow (f(x_1, \ \dots, \ x_{i - 1}, \ x, \ x_{i + 1}, \ \dots , \ x_n) \leftrightarrow f(x_1, \ \dots , x_{i - 1}, \ y, \ x_{i + 1}, \ \dots , \ x_n ))$
+			\end{itemize}
+		\end{axiom}
 	\end{definition}
 
+	\begin{example}[Примеры формальных теорий с равенством]\
+		\begin{itemize}
+			\item формальная арифметика
+			\item теория групп (равенство элементов)
+			\item геометрия (равенство точек)
+		\end{itemize}
+	\end{example}
+
 \section{Формальная арифметика (аксиоматическая теория чисел).}
+	\begin{itemize}
+		\item $FA$ -- формальная теория в сигнатуре $<0; \ S, \ +, \ *, \ \wedge ; \ = >$
+	\item аксиомы согласования с равенством:
+		\begin{itemize}
+			\item $\forall xy \ (x = y \ \rightarrow \ S(x) = S(y))$
+			\item $\forall xya \ (x = y \ \rightarrow \ x + a = y + a)$
+			\item $\forall xya \ (x = y \ \rightarrow \ a + x = a + y)$
+		\end{itemize}
+	\end{itemize}
+
+	Аналогично для $*$ и $\wedge$.
+	
+	\begin{itemize}
+		\item $\forall xyz \ (x = y \ \& \ y = z \ \rightarrow \ (x * y) * z = x * (y * z))$
+		\item $\forall xya \ (x = y \ \rightarrow \ x * a = y * a)$
+		\item $\forall xya \ (x = y \ \rightarrow \ a * x = a * y)$
+	\end{itemize}
+
+	\begin{axiom}[Собственные аксиомы арифметики]\
+		\begin{enumerate}
+			\item $\forall x \ \neg (S(x) = 0)$
+			\item Однозначность \\[1ex]
+			$\forall xy \ (S(x) = S(y) \ \rightarrow \ x = y)$
+			\item Определение сложения \\[1ex]
+			$\forall x \ (x + 0 = x)$ \\[1ex]
+			$\forall xy \ (x + S(y) = S(x + y))$
+			\item Определение умножения \\[1ex]
+			$\forall x \ (x * 0 = 0)$ \\[1ex]
+			$\forall xy \ (x * S(y) = x * y + x)$
+			\item $\forall x \ (x^0 = S(0))$ \\[1ex]
+			$\forall xy \ x^{S(y)} = x^y * x$
+			\item Аксиома индукции: \\[1ex]
+			для всякой формулы $A(x)$ со свободной переменной $x$: \\[1ex]
+			$A(0) \ \& \ \forall x \ (A(x) \ \rightarrow \ A(S(x))) \ \rightarrow \ \forall x \ A(x)$
+		\end{enumerate}
+	\end{axiom}
 
 \section{Первая теорема Геделя.}
 
