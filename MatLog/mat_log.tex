@@ -312,13 +312,21 @@
 	\end{definition}
 
 	\begin{example} \ \\[1ex]
-		Переменные, связанные одним и тем же квантором подчёркнуты одинаково.
+		Переменные, связанные одним и тем же квантором подчёркнуты одинаково.\\[1ex]
 		$\forall \underline{x} (P(\underline{x}, \ y, \ z)) \rightarrow \ \exists \underline{\underline{y}} \forall \underline{\underline{\underline{z}}} Q(\underline{x}, \ \underline{\underline{y}}, \ \underline{\underline{\underline{z}}})$\\[1ex]
 		Первые два вхождения предметных переменных $y$ и $z$ являются свободными.
 	\end{example}
 
-	\begin{definition}
+	\begin{definition}\ \\[1ex]
+		Терм $t$ называется \textbf{свободным для подстанвки в формулу $\bf{F}$ вместо свободных вхождений предметной переменной $x$}, если $t$ не содержит переменных, в области действия кванторов по которым имеется свободное вхождение переменной $x$.
+	\end{definition}
+
+	\begin{definition}\ \\[1ex]
 		Формула без свободных переменных называется \textbf{замкнутой}.
+	\end{definition}
+
+	\begin{definition}\ \\[1ex]
+		Формула, у которой ни одна переменная не имеет как свободных, так и связанных вхождений, называется \textbf{чистой}.
 	\end{definition}
 
 \section{Интерпретации. Общезначимые и выполнимые формулы, противоречия.}
