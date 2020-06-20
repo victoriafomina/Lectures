@@ -252,19 +252,19 @@
 
 \section{Предикатные формулы: терм, атомарная формула, предикатная формула. Область действия квантора, свободные и связанные вхождения предметной переменной в формулу. Терм, свободный для подстановки в формулу вместо свободных вхождений предметной переменной.}
 
-	\begin{definition}
+	\begin{definition} \ \\[1ex]
 		\textbf{Предметная константа} - имя предмета.
 	\end{definition}
 
-	\begin{definition}
+	\begin{definition} \ \\[1ex]
 		\textbf{Предметная переменная} - переменная, которая в качестве своих значений может принимать предметные константы.
 	\end{definition}
 
-	\begin{definition}
+	\begin{definition} \ \\[1ex]
 		Символ $F$ в формальном языке является \textbf{функциональным символом}, если для любого символа $Х$, представляющий объект в языке, $F \krs{X}$ снова является символом, представляющим объект на этом языке
 	\end{definition}
 
-	\begin{definition}[\textbf{Терм}]
+	\begin{definition}[\textbf{Терм}] \ \\
 		\begin{enumerate}
 			\item Предметная константа является термом.
 			\item Предметная переменная является термом.
@@ -273,14 +273,14 @@
 		\end{enumerate}
 	\end{definition}
 
-	\begin{definition}[\textbf{Атомарная формула}]
+	\begin{definition}[\textbf{Атомарная формула}] \
 		\begin{enumerate}
 			\item Если $t_{1} , \ \dots , \ t_{n}$ -- термы, $P - n$-местный предикатный символ, то $P \krs{t_{1}, \ \dots , \ t_{n}}$ является атомарной формулой.
 			\item Никакие выражения, кроме полученных в результате применения п. 1 этого определения не являются атомарной формулой.
 		\end{enumerate}
 	\end{definition}
 
-	\begin{definition}[\textbf{Предикатная формула}]
+	\begin{definition}[\textbf{Предикатная формула}] \
 		\begin{enumerate}
 			\item Атомарная формула является предикатной формулой.
 			\item Если А -- предикатная формула, то $\neg A$ является предикатной формулой.
@@ -290,21 +290,32 @@
 		\end{enumerate}
 	\end{definition}
 	
-	\begin{definition}
+	\begin{definition} \ \\[1ex]
 		\textbf{Кванторным комплексом} называется выражение вида $\forall x$ или $\exists x$, где $x$ -- имя предметной переменной.
 	\end{definition}
 
-	\begin{definition}
+	\begin{definition} \ \\[1ex]
 		\textbf{Областью действия квантора} называется формула, стоящая непосредственно вслед за кванторным комплексом, содержащим это вхождение квантора.
 	\end{definition}
 
-	\begin{definition}
+	\begin{example} \ \\[1ex]
+		$\forall x \underbrace{(P \krs{x, \ y, \ z} \ \rightarrow \ \exists y \underbrace{\forall z \ \underbrace{Q \krs{x, \ y, \ z}}_3}_2 )}_{1}$\\[1ex]
+		Цифрами 1, 2, и 3 отмечены области действия соответсвенно квантора всеобщности по переменной $x$, квантора существования по переменное $y$ и квантора всеобщности по переменной $z$.
+	\end{example}
+
+	\begin{definition} \ \\[1ex]
 		\textbf{Вхождение} предметной переменной в формулу называется \textbf{связанным}, если оно находится в кванторном комплексе или в области действия квантора по этой переменной.
 	\end{definition}
 
-	\begin{definition}
+	\begin{definition} \ \\[1ex]
 		Вхождения предметных переменных, не являющиеся связанными, называются \textbf{свободными}.
 	\end{definition}
+
+	\begin{example} \ \\[1ex]
+		Переменные, связанные одним и тем же квантором подчёркнуты одинаково.
+		$\forall \underline{x} (P(\underline{x}, \ y, \ z)) \rightarrow \ \exists \underline{\underline{y}} \forall \underline{\underline{\underline{z}}} Q(\underline{x}, \ \underline{\underline{y}}, \ \underline{\underline{\underline{z}}})$\\[1ex]
+		Первые два вхождения предметных переменных $y$ и $z$ являются свободными.
+	\end{example}
 
 	\begin{definition}
 		Формула без свободных переменных называется \textbf{замкнутой}.
