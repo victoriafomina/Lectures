@@ -1,0 +1,235 @@
+% Этот шаблон документа разработан в 2014 году
+% Данилом Фёдоровых (danil@fedorovykh.ru) 
+% для использования в курсе 
+% <<Документы и презентации в \LaTeX>>, записанном НИУ ВШЭ
+% для Coursera.org: http://coursera.org/course/latex .
+% Исходная версия шаблона --- 
+% https://www.writelatex.com/coursera/latex/3.2
+
+\documentclass[a4paper,12pt]{article}
+
+%%% Работа с русским языком
+\usepackage{cmap}					% поиск в PDF
+\usepackage{mathtext} 				% русские буквы в формулах
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+
+%%% Дополнительная работа с математикой
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+
+%% Номера формул
+%\mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+%\usepackage{leqno} % Нумерация формул слева
+
+%% Свои команды
+\DeclareMathOperator{\sgn}{\mathop{sgn}}
+
+%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+	{\hbox{$\mathsurround=0pt #1$}}{}}
+
+%%% Работа с картинками
+\usepackage{graphicx}  % Для вставки рисунков
+\graphicspath{{images/}{images2/}}  % папки с картинками
+\setlength\fboxsep{3pt} % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
+\usepackage{wrapfig} % Обтекание рисунков текстом
+
+%%% Работа с таблицами
+\usepackage{array,tabularx,tabulary,booktabs} % Дополнительная работа с таблицами
+\usepackage{longtable}  % Длинные таблицы
+\usepackage{multirow} % Слияние строк в таблице
+
+%%% Теоремы
+\theoremstyle{definition} % Это стиль по умолчанию, его можно не переопределять.
+\newtheorem{definition}{Определение}[section]
+\newtheorem{ddefinition}{Определение}[subsection]
+\newtheorem{dddefinition}{Определение}[subsubsection]
+\newtheorem{remark}{Замечание}[section]
+\newtheorem{rremark}{Замечание}[subsection]
+\newtheorem{rrremark}{Замечание}[subsubsection]
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{ttheorem}{Теорема}[subsection]
+\newtheorem{tttheorem}{Теорема}[subsubsection]
+\newtheorem{proposition}{Предложение}[section]
+\newtheorem{pproposition}{Предложение}[subsection]
+\newtheorem{ppproposition}{Предложение}[subsubsection]
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{llemma}{Лемма}[subsection]
+\newtheorem{lllemma}{Лемма}[subsubsection]
+\newtheorem{upr}{Упражнение}[section]
+\newtheorem{uupr}{Упражнение}[subsection]
+\newtheorem{uuupr}{Упражнение}[subsubsection]
+\newtheorem{example}{Пример}[section]
+\newtheorem{eexample}{Пример}[subsection]
+\newtheorem{eeexample}{Пример}[subsubsection]
+\newtheorem{corollary}{Следствие}[section]
+\newtheorem{ccorollary}{Следствие}[subsection]
+\newtheorem{cccorollary}{Следствие}[subsubsection]
+\newtheorem{axiom}{Аксиома}[section]
+\newtheorem{aaxiom}{Аксиома}[subsection]
+\newtheorem{aaaxiom}{Аксиома}[subsubsection]
+
+\theoremstyle{definition} % "Определение"
+%\newtheorem{corollary}{Следствие}[theorem]
+\newtheorem{problem}{Задача}[section]
+
+\theoremstyle{remark} % "Примечание"
+\newtheorem*{nonum}{Решение}
+
+%%% Программирование
+\usepackage{etoolbox} % логические операторы
+
+%%% Страница
+%\usepackage{extsizes} % Возможность сделать 14-й шрифт
+\usepackage{geometry} % Простой способ задавать поля
+\geometry{top=25mm}
+\geometry{bottom=35mm}
+\geometry{left=35mm}
+\geometry{right=20mm}
+%
+\usepackage{fancyhdr} % Колонтитулы
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0mm}  % Толщина линейки, отчеркивающей верхний колонтитул
+\lfoot{Нижний левый}
+\rfoot{Нижний правый}
+\rhead{Верхний правый}
+\chead{Верхний в центре}
+\lhead{Верхний левый}
+% \cfoot{Нижний в центре} % По умолчанию здесь номер страницы
+
+\usepackage{setspace} % Интерлиньяж
+%\onehalfspacing % Интерлиньяж 1.5
+%\doublespacing % Интерлиньяж 2
+%\singlespacing % Интерлиньяж 1
+
+\usepackage{lastpage} % Узнать, сколько всего страниц в документе.
+
+\usepackage{soulutf8} % Модификаторы начертания
+
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
+\hypersetup{				% Гиперссылки
+	unicode=true,           % русские буквы в раздела PDF
+	pdftitle={Заголовок},   % Заголовок
+	pdfauthor={Автор},      % Автор
+	pdfsubject={Тема},      % Тема
+	pdfcreator={Создатель}, % Создатель
+	pdfproducer={Производитель}, % Производитель
+	pdfkeywords={keyword1} {key2} {key3}, % Ключевые слова
+	colorlinks=true,       	% false: ссылки в рамках; true: цветные ссылки
+	linkcolor=black,          % внутренние ссылки
+	citecolor=green,        % на библиографию
+	filecolor=magenta,      % на файлы
+	urlcolor=blue           % на URL
+}
+
+%\renewcommand{\familydefault}{\sfdefault} % Начертание шрифта
+
+\usepackage{multicol} % Несколько колонок
+
+
+\newcommand{\comment}[1]{\left/\left/#1\right/\right/}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\Un}{\mathbb{U}}
+\newcommand{\Chi}{\mathcal{X}}
+\newcommand{\modul}[1]{\left|#1\right|}
+\newcommand{\kvs}[1]{\left[#1\right]}
+\newcommand{\krs}[1]{\left(#1\right)}
+\renewcommand{\mod}{\ \mathrm{mod}\ }
+\newcommand{\divv}{\,\mathrm{div}\,}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\d}{\partial}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\La}{\Leftarrow}
+\newcommand{\del}{\,\raisebox{-0.2ex}\vdots\,}
+\newcommand{\LR}{\ \Leftrightarrow \ }
+\newcommand{\LLR}{\ \Longleftrightarrow \ }
+\newcommand{\fs}[1]{\left\{#1\right\}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\trh}[2][0.8ex]{%
+	#2%
+	\vphantom{%
+		\raisebox{#1}{\ensuremath{#2}}
+		\raisebox{-#1}{\ensuremath{#2}}%
+	}
+}
+\newcommand{\mystackrel}[1]{
+	\stackrel
+	{
+		\begin{smallmatrix}
+			#1
+		\end{smallmatrix}
+	}
+	{\vphantom{\raisebox{0.5ex}{\ensuremath{\Longleftrightarrow}}}
+		\Longleftrightarrow\vphantom{\raisebox{0.5ex}{\ensuremath{\Longleftrightarrow}}}}
+}
+\newcommand{\mystackreleq}[1]{
+	\stackrel
+	{
+		\begin{smallmatrix}
+			#1
+		\end{smallmatrix}
+	}
+	{\vphantom{\raisebox{0.5ex}{\ensuremath{=}}}
+		=\vphantom{\raisebox{0.5ex}{\ensuremath{=}}}}
+}
+\newenvironment{aggregate}{\left[\begin{matrix*}[l]}{\end{matrix*}\right.}
+
+\newcommand{\wa}[1]{\href{#1}{\includegraphics[scale=0.2]{Wolfram_Alpha_logo.pdf}}}
+
+\newcommand{\oR}{\overline{\real}}
+
+\usepackage{enumerate}
+\usepackage{datetime}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usepackage{pgfplots}
+\tikzset{>={stealth[width=2mm,length=3mm]}}
+\usepackage{mathabx}
+\usepackage{subfigure}
+\usepackage{lscape}
+
+
+%%% Заголовок
+\author{
+	\href{https://vk.com/victoriaisthebestgirl}{Фомина В.В.}\\ 
+	Набрано в {\bf\LaTeX}
+}
+\title{
+	Дебильник по предмету:\\
+	 <<Математическая логика>>\\
+	Четвертый семестр.
+	\begin{center}
+		\normalsize
+		Специальность 02.03.03.\\
+		Математическое обеспечение и администрирование информационных систем.\\
+		Преподаватель - Григорьева Татьяна Матвеевна.\\
+		Группа 244.\\
+		Санкт-Петербург 2020.
+	\end{center}
+}
+\date{Дата изменения: \today\quad\currenttime}
+
+\pagestyle{empty}
+\parindent = 0ex
+
+\begin{document}
+	
+\maketitle
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\end{document}
