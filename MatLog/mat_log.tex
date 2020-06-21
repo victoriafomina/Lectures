@@ -249,9 +249,21 @@
 			\item пропозициональная переменная
 			\item $A$ -- пропозициональная формула $\rightarrow \neg A$ -- пропозициональная формула
 			\item $A, \ B$ -- пропозициональные формулы, $*$ -- бинарная связка $\rightarrow A * B$ -- пропозициональная формула
-		\end{itemize}
-		
+		\end{itemize}		
 	\end{definition}
+
+	\begin{remark}[Основные равносильности (не самые очевидные)]\
+		\begin{itemize}
+			\item Склеивание \\[1ex]
+			$A \ \& \ B \ \lor \ \neg A \ \& \ C \Leftrightarrow A \ \& B \ \lor \ \neg A \ \& \ C \ \lor \ B \ \& \ C$ \\[1ex]
+			$(A \lor B) \ \& \ (\neg A \lor C) \Leftrightarrow (A \lor B) \ \& \ (\neg A \lor C) \ \& \ (B \lor C)$
+			\item $A \leftrightarrow B \ \Leftrightarrow \ (A \rightarrow B) \ \& \ (B \rightarrow A) \ \Leftrightarrow \ (\neg A \lor B) \ \& \ (\neg B \lor A) \ \Leftrightarrow$ \\[1ex]
+			$\Leftrightarrow \ \neg A \ \& \ (\neg B \lor A) \ \lor \ B \ \& \ (\neg B \lor A) \ \Leftrightarrow \ (\neg A \ \& \ \neg B) \ \lor \ (B \ \& \ A)$ 
+			\item $A \oplus B \ \Leftrightarrow \neg(A \leftrightarrow B)$
+			\item $A \ | \ B \ \Leftrightarrow \ \neg(A \ \& \ B)$
+			\item $A \downarrow B \ \Leftrightarrow \ \neg(A \lor B) $
+		\end{itemize}
+	\end{remark}
 
 \section{Теоремы о представимости пропозициональной формулы с помощью формул, содержащих только три, две или одну логическую связку.}
 
